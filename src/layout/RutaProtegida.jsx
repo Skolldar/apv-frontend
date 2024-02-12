@@ -12,7 +12,6 @@ const RutaProtegida = () => {
     <>
     <div>
         <Headers />
-
         {auth?._id ? 
         ( <main className="container mx-auto mt-10">
             <Outlet />

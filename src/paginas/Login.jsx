@@ -5,6 +5,7 @@ import useAuth from "../hooks/useAuth";
 import clienteAxios from '../config/axios';
 
 
+
 const Login = () => {
 
     const [email, setEmail] = useState('')
@@ -42,20 +43,20 @@ const Login = () => {
     const {msg} = alerta
 
     return (
-      <>
-        <div>
+      <>    
+            <div> 
             <h1 className="text-indigo-600 font-black text-6xl">
                 Inicia sesion y Administra a tus 
                 <span className="text-black"> Pacientes</span>
             </h1>
-        </div>
+            </div>
 
-        <div className="mt-20 md:mt-5 shadow-lg px-5 py-10 rounded-xl bg-white">
+            <div className="mt-20 md:mt-10 shadow-lg px-5 py-10 rounded-xl bg-white">
 
-        {msg && 
-            <Alerta
-            alerta={alerta} 
-          />}
+            {msg && 
+                <Alerta
+              alerta={alerta} 
+            />}
 
             <form onSubmit={handleSubmit}>
 

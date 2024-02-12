@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.login {
+    background-image: url('/img/dog-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.min-h-screen {
+    min-height:95vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .login {
+        background-image: none;
+    }
+}
