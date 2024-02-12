@@ -45,7 +45,7 @@ const Login = () => {
     return (
       <>    
             <div> 
-            <h1 className="text-indigo-600 font-black text-6xl">
+            <h1 className="text-indigo-600 font-black text-6xl mt-2">
                 Inicia sesion y Administra a tus 
                 <span className="text-black"> Pacientes</span>
             </h1>
