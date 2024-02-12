@@ -9,9 +9,6 @@
     background-position: top;
 }
 
-.min-h-screen {
-    min-height:95vh;
-}
 
 @media only screen and (max-width: 768px) {
     .login {
