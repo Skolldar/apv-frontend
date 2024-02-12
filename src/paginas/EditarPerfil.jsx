@@ -23,10 +23,18 @@ const EditarPerfil = () => {
                 msg: 'Email y Nombre son obligatorios',
                 error: true
             })
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
             return
         }
        const resultado =  await actualizarPerfil(perfil)
        setAlerta(resultado)
+       setTimeout(() => {
+        // remover alerta aqui.
+        setAlerta({})
+     }, 3000);
     }
 
     const {msg} = alerta

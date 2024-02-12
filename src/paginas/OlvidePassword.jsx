@@ -13,6 +13,10 @@ const OlvidePassword = () => {
 
         if(email === '' || email.length < 6) {
             setAlerta({msg: 'El Email es obligatorio', error: true})
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
             return
         }
 
@@ -20,6 +24,10 @@ const OlvidePassword = () => {
             const {data} = await clienteAxios.post('veterinarios/olvide-password', {email})
 
             setAlerta({msg: data.msg})
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
         } catch (error) {
             setAlerta({
                 msg: error.response.data.msg,

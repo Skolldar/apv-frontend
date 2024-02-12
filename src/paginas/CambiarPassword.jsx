@@ -22,6 +22,10 @@ const CambiarPassword = () => {
         msg: 'Todos los campos son obligatorios',
         error: true
       })
+      setTimeout(() => {
+        // remover alerta aqui.
+        setAlerta({})
+     }, 3000);
       return
     }
 
@@ -30,12 +34,19 @@ const CambiarPassword = () => {
         msg: 'El password debe contener minimo 6 caracteres',
         error: true
       })
+      setTimeout(() => {
+        // remover alerta aqui.
+        setAlerta({})
+     }, 3000);
       return
     }
     
     const respuesta = await guardarPassword(password)
-
     setAlerta(respuesta)
+    setTimeout(() => {
+      // remover alerta aqui.
+      setAlerta({})
+   }, 3000);
   }
 
   const {msg} = alerta

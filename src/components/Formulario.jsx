@@ -43,6 +43,10 @@ const Formulario = () => {
         setAlerta({
             msg: 'Guardado Correctamente'
         })
+        setTimeout(() => {
+            // remover alerta aqui.
+            setAlerta({})
+         }, 3000);
         //REINICIAR todo el formulario
          setNombre('')
          setPropietario('')

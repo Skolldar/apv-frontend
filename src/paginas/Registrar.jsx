@@ -16,17 +16,32 @@ const Registrar = () => {
 
         if([nombre, email, password, repetirPassword].includes('')) {
             setAlerta({msg:'Hay campos vacios', error: true})
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
             return;
         }
         if(password !== repetirPassword) {
             setAlerta({msg:'El password no es igual', error: true})
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
             return;
         }
         if(password.length < 6) {
             setAlerta({msg:'El password es muy corto, agrega minimo 6 caracteres', error: true})
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
         }
 
-        setAlerta({});
+        setTimeout(() => {
+            // remover alerta aqui.
+            setAlerta({})
+         }, 3000);
 
         //Crear el usuario en la API
         try {
@@ -36,6 +51,10 @@ const Registrar = () => {
                 msg: 'Creado Correctamente, revisa tu email',
                 error: false
             })
+            setTimeout(() => {
+                // remover alerta aqui.
+                setAlerta({})
+             }, 3000);
 
         } catch (error) {
             setAlerta({

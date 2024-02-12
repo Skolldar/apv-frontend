@@ -22,6 +22,10 @@ const ConfirmarCuenta = () => {
         setAlerta({
           msg: data.msg
         })
+        setTimeout(() => {
+          // remover alerta aqui.
+          setAlerta({})
+       }, 3000);
       } catch (error) {
         setAlerta({
           msg:error.response.data.msg,
