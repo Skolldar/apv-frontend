@@ -30,7 +30,7 @@ Its main features include:
 ### Admin Features:
 
 You can:
-The application allows you to have better management of your patience and also register, login or recover your account.
+The application allows you to have better management of your patients and also register, login or recover your account.
 [![Screenshot-from-2024-03-01-15-18-34.png](https://i.postimg.cc/sfJgVwsR/Screenshot-from-2024-03-01-15-18-34.png)](https://postimg.cc/s1vrmPMn)
 
 Also will be able to add, edit and change your patience.
