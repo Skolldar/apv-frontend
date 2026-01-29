@@ -60,6 +60,11 @@ const Registrar = () => {
                 msg: 'Creado Correctamente, revisa tu email',
                 error: false
             })
+            //clear form
+            setNombre('')
+            setEmail('')
+            setPassword('')
+            setRepetirPassword('')
             setTimeout(() => {
                 setAlerta({})
              }, 3000);
