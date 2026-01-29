@@ -53,14 +53,17 @@ const ConfirmarCuenta = () => {
           {cuentaConfirmada ? (
                 <Link 
                 className="block text-center my-5 text-gray-500"
-                to="/">Tienes una cuenta? <span className="text-indigo-600 font-semibold cursor-pointer hover:text-indigo-700">Inicia Sesion</span></Link>            
+                to="/">Tienes una cuenta? 
+                <span className="text-indigo-600 font-semibold cursor-pointer hover:text-indigo-700">Inicia Sesion</span></Link>            
           ) : (
           <div>
             <Link 
               className="block text-center my-5 text-gray-500"
-              to="/registrar">No tienes una cuenta? <span className="text-indigo-600 font-semibold cursor-pointer hover:text-indigo-700">Registrate</span></Link>
+              to="/registrar">No tienes una cuenta? 
+              <span className="text-indigo-600 font-semibold cursor-pointer hover:text-indigo-700">Registrate</span></Link>
             <p className="block text-center my-5 text-gray-500">
-              Si tienes problemas para confirmar tu cuenta. Contacta con soporte: <br /> <span className="text-gray-600 font-semibold cursor-pointer hover:text-indigo-700">apv-soporte@gmail.com</span>
+              Si tienes problemas para confirmar tu cuenta. Contacta con soporte: <br /> 
+              <span className="text-gray-600 font-semibold cursor-pointer hover:text-indigo-700">apv-soporte@gmail.com</span>
             </p>
           </div>
           )}
