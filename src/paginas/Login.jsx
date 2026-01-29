@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link, useNavigate } from "react-router-dom";
 import Alerta from '../components/Alerta';
 import useAuth from "../hooks/useAuth";
@@ -11,6 +12,8 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [alerta, setAlerta] = useState({})
+    const [showPassword, setShowPassword] = useState(false)
+
 
     const {setAuth} = useAuth()
 
@@ -80,13 +83,27 @@ const Login = () => {
                     <label className="uppercase text-gray-600 block text-xl font-bold">
                         Password
                     </label>
-                    <input 
-                    type="password"
-                    placeholder="Tu Password"
-                    className="border w-full p-3  mt-3 bg-gray-50 rounded-xl"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    />
+                 <div className="relative">
+                                         <input 
+                                         type={showPassword ? "text" : "password"}
+                                         placeholder="Tu Password"
+                                         className="border w-full p-3 bg-gray-50 rounded-xl pr-10"
+                                         value={password}
+                                         onChange={e => setPassword(e.target.value)}
+                                         />
+                                         <button
+                                             type="button"
+                                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                                             onClick={() => setShowPassword(!showPassword)}
+                                             aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                                         >
+                                             {showPassword ? (
+                                                 <AiOutlineEyeInvisible className="h-5 w-5" />
+                                             ) : (
+                                                 <AiOutlineEye className="h-5 w-5" />
+                                             )}
+                                         </button>
+                                     </div>
                 </div>
                 <input type="submit"
                 value="Iniciar Sesion"
