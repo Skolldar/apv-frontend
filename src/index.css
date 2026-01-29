@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .login {
+    padding-top: 1rem;
     background-image: url('/img/dog-header.jpg');
     background-size: cover;
     background-repeat: no-repeat;

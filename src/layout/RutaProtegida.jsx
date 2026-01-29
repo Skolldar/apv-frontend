@@ -13,7 +13,7 @@ const RutaProtegida = () => {
     <div>
         <Headers />
         {auth?._id ? 
-        ( <main className="container mx-auto mt-10">
+        ( <main className="container mx-auto mt-10 md:mt-20 px-5">
             <Outlet />
             </main>
         ): <Navigate to="/" />}
