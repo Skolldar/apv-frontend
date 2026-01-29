@@ -90,8 +90,8 @@ const Registrar = () => {
             </h1>
         </div>
 
-        <div className="pt-6 md:mt-10 shadow-lg rounded-xl bg-white">
-                <div className="h-16 flex items-center justify-center mb-4">{msg && <Alerta alerta={alerta} />}</div>
+        <div className="pt-6 mt-10 shadow-lg rounded-xl bg-white">
+                <div className="h-16 px-5 flex items-center justify-center mb-4">{msg && <Alerta alerta={alerta} />}</div>
             <div className="px-5">
                     <form 
                         onSubmit={handleSubmit}
@@ -175,9 +175,9 @@ const Registrar = () => {
                 <input type="submit"
                 value="Crear Cuenta"
                 className="bg-indigo-700 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"/>
-                <nav className=" my-10 px-5 lg:flex lg:justify-between">
+                <nav className=" my-10 p-5 lg:flex lg:justify-between">
                 <Link 
-                    className="block text-center text-gray-500"
+                    className="block mb-5 md:mb-0 text-center text-gray-500"
                     to="/">Tienes una cuenta? Inicia Sesion</Link>
                 <Link 
                     className="block text-center text-gray-500" 
