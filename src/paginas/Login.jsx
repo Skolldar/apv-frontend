@@ -84,26 +84,26 @@ const Login = () => {
                         Password
                     </label>
                  <div className="relative">
-                                         <input 
-                                         type={showPassword ? "text" : "password"}
-                                         placeholder="Tu Password"
-                                         className="border w-full p-3 bg-gray-50 rounded-xl pr-10"
-                                         value={password}
-                                         onChange={e => setPassword(e.target.value)}
-                                         />
-                                         <button
-                                             type="button"
-                                             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
-                                             onClick={() => setShowPassword(!showPassword)}
-                                             aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
-                                         >
-                                             {showPassword ? (
-                                                 <AiOutlineEyeInvisible className="h-5 w-5" />
-                                             ) : (
-                                                 <AiOutlineEye className="h-5 w-5" />
-                                             )}
-                                         </button>
-                                     </div>
+                    <input 
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Tu Password"
+                    className="border w-full p-3 bg-gray-50 rounded-xl pr-10"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+                    <button
+                         type="button"
+                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                         onClick={() => setShowPassword(!showPassword)}
+                         aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                    >
+                         {showPassword ? (
+                             <AiOutlineEyeInvisible className="h-5 w-5" />
+                         ) : (
+                             <AiOutlineEye className="h-5 w-5" />
+                         )}
+                    </button>
+                    </div>
                 </div>
                 <input type="submit"
                 value="Iniciar Sesion"

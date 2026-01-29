@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useParams, Link} from 'react-router-dom';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import Alerta from '../components/Alerta'
 import clienteAxios from '../config/axios';
 
@@ -8,6 +9,7 @@ const NuevoPassword = () => {
   const [alerta, setAlerta] = useState({})
   const [tokenValido, setTokenValido] = useState(false)
   const [passwordModificado, setPasswordModificado] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const params = useParams()
   const {token} = params
@@ -34,12 +36,11 @@ const NuevoPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(password.length < 6) {
-      setAlerta({
-        msg:'El password debe ser minimo de 6 caracteres',
-        error: true
-      })
-      return
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      setAlerta({msg:'La contraseña debe tener al menos 8 caracteres e incluir mayúsculas, minúsculas, números y caracteres especiales', error: true});
+      setTimeout(() => setAlerta({}), 3000);
+      return;
     }
 
     try {
@@ -49,7 +50,8 @@ const NuevoPassword = () => {
       setAlerta({
         msg: data.msg 
       })
-
+      //reset form
+      setPassword('')
       setPasswordModificado(true)
     } catch (error) {
       setAlerta({
@@ -76,21 +78,35 @@ const NuevoPassword = () => {
           {msg && <Alerta
            alerta={alerta}  
           />}
-      {tokenValido && (
+      {tokenValido && !passwordModificado && (
         <>
           <form onSubmit={handleSubmit}>
 
             <div className="my-5">
-                  <label className="uppercase text-gray-600 block text-xl font-bold">
-                      Nuevo Password
-                  </label>
-                  <input 
-                  type="password"
-                  placeholder="Tu Nuevo Password"
-                  className="border w-full p-3  mt-3 bg-gray-50 rounded-xl"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  />
+                <label className="uppercase text-gray-600 block text-xl font-bold">
+                  Nuevo Password
+                </label>
+                <div className="relative mt-3">
+                    <input 
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Tu Password"
+                    className="border w-full p-3 bg-gray-50 rounded-xl pr-10"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+                    <button
+                       type="button"
+                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                       onClick={() => setShowPassword(!showPassword)}
+                       aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                    >
+                       {showPassword ? (
+                         <AiOutlineEyeInvisible className="h-5 w-5" />
+                       ) : (
+                         <AiOutlineEye className="h-5 w-5" />
+                       )}
+                    </button>
+                    </div>
             </div>
               <input type="submit"
               value="Guardar Nuevo Password"
@@ -102,7 +118,7 @@ const NuevoPassword = () => {
       {passwordModificado &&
         <Link 
           className="block text-center my-5 text-gray-500"
-          to="/">Tienes una cuenta? Inicia Sesion
+          to="/">Tienes una cuenta? <span className='text-indigo-600 cursor-pointer hover:text-indigo-700 font-semibold'>Inicia Sesion</span>
         </Link>
       }
 

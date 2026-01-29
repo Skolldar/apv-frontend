@@ -2,6 +2,7 @@ import {useState} from 'react'
 import AdminNav from "../components/AdminNav"
 import Alerta from "../components/Alerta"
 import useAuth from '../hooks/useAuth'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 const CambiarPassword = () => {
 
@@ -13,6 +14,8 @@ const CambiarPassword = () => {
     pwd_actual: '',
     pwd_nuevo: ''
   })
+  const [showPwdActual, setShowPwdActual] = useState(false)
+  const [showPwdNuevo, setShowPwdNuevo] = useState(false)
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -29,13 +32,13 @@ const CambiarPassword = () => {
       return
     }
 
-    if(password.pwd_nuevo.length < 6) {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+    if (!passwordRegex.test(password.pwd_nuevo)) {
       setAlerta({
-        msg: 'El password debe contener minimo 6 caracteres',
+        msg: 'La contraseña debe tener al menos 8 caracteres e incluir mayúsculas, minúsculas, números y caracteres especiales',
         error: true
       })
       setTimeout(() => {
-        // remover alerta aqui.
         setAlerta({})
      }, 3000);
       return
@@ -44,9 +47,13 @@ const CambiarPassword = () => {
     const respuesta = await guardarPassword(password)
     setAlerta(respuesta)
     setTimeout(() => {
-      // remover alerta aqui.
       setAlerta({})
    }, 3000);
+   //reset form
+   setPassword({
+    pwd_actual: '',
+    pwd_nuevo: ''
+   })
   }
 
   const {msg} = alerta
@@ -76,16 +83,31 @@ const CambiarPassword = () => {
                 Password Actual
                 </label>
 
+                <div className="relative mt-3">
                 <input 
-                  type="password"
-                  className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
+                  type={showPwdActual ? "text" : "password"}
+                  className="border bg-gray-50 w-full p-2 rounded-lg pr-10"
                   name="pwd_actual"
                   placeholder='Escribe tu Password actual'
+                  value={password.pwd_actual}
                   onChange={e => setPassword({
                     ...password, 
                     [e.target.name] : e.target.value
                   })}
                 />
+                <button
+                  type="button"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                  onClick={() => setShowPwdActual(!showPwdActual)}
+                  aria-label={showPwdActual ? "Ocultar contraseña" : "Mostrar contraseña"}
+                >
+                  {showPwdActual ? (
+                    <AiOutlineEyeInvisible className="h-5 w-5" />
+                  ) : (
+                    <AiOutlineEye className="h-5 w-5" />
+                  )}
+                </button>
+                </div>
               </div>
 
               <div className="my-3">
@@ -93,16 +115,31 @@ const CambiarPassword = () => {
                     Nuevo Password
                 </label>
 
+                <div className="relative mt-3">
                 <input 
-                  type="password"
-                  className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
+                  type={showPwdNuevo ? "text" : "password"}
+                  className="border bg-gray-50 w-full p-2 rounded-lg pr-10"
                   name="pwd_nuevo"
                   placeholder='Escribe tu nuevo password'
+                  value={password.pwd_nuevo}
                   onChange={e => setPassword({
                     ...password, 
                     [e.target.name] : e.target.value
                   })}
                 />
+                <button
+                  type="button"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                  onClick={() => setShowPwdNuevo(!showPwdNuevo)}
+                  aria-label={showPwdNuevo ? "Ocultar contraseña" : "Mostrar contraseña"}
+                >
+                  {showPwdNuevo ? (
+                    <AiOutlineEyeInvisible className="h-5 w-5" />
+                  ) : (
+                    <AiOutlineEye className="h-5 w-5" />
+                  )}
+                </button>
+                </div>
               </div>
 
               <input 
