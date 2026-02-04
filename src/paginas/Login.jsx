@@ -40,10 +40,15 @@ const Login = () => {
             setAuth(data)
             navigate('/admin')
         } catch (error) {
+            const msg = 'This email is not registered, please create an account' || error.message || 'Hubo un error, intenta de nuevo';
+            console.log(error.response || error);
             setAlerta({
-                msg: error.response.data.msg,
+                msg,
                 error: true
             })
+            setTimeout(() => {
+                setAlerta({})
+            }, 3000);
         }
     }
 
