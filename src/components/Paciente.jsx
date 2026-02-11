@@ -1,4 +1,5 @@
 import usePacientes from "../hooks/usePacientes"
+import { FaPencilAlt, FaTrash } from "react-icons/fa"
 
 const Paciente = ({paciente}) => {
     const {setEdicion, eliminarPaciente} = usePacientes()
@@ -31,18 +32,24 @@ const Paciente = ({paciente}) => {
             <span className="font-normal normal-case text-black">{sintomas}</span> 
         </p>
 
-        <div className=" flex justify-between my-5">
+        <div className=" flex justify-between mt-5 gap-5">
             <button
                 type="button"
-                className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white uppercase font-bold rounded-lg"
-                onClick={() => setEdicion(paciente)} //espera a que suceda el evento.
-            >Editar</button>
+                className="p-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold flex items-center justify-center"
+                onClick={() => setEdicion(paciente)}
+                aria-label="Editar"
+            >
+              <FaPencilAlt className="h-5 w-5" />
+            </button>
 
             <button
                 type="button"
-                className="py-2 px-10 bg-red-600 hover:bg-red-700 text-white uppercase font-bold rounded-lg"
+                className="p-2 w-full bg-red-600 hover:bg-red-700 text-white font-bold flex items-center justify-center"
                 onClick={() => eliminarPaciente(_id)}
-            >Eliminar</button>
+                aria-label="Eliminar"
+            >
+               <FaTrash className="h-5 w-5" />
+            </button>
         </div>
     </div>
   )
