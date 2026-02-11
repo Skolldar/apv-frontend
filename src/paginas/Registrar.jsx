@@ -174,7 +174,7 @@ const Registrar = () => {
                 </div>
                 <input type="submit"
                 value="Crear Cuenta"
-                className="bg-indigo-700 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"/>
+                className="bg-indigo-700 w-full py-3 px-10 text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"/>
                 <nav className=" my-10 p-5 lg:flex lg:justify-between">
                 <Link 
                     className="block mb-5 md:mb-0 text-center text-gray-500"

@@ -145,7 +145,7 @@ const CambiarPassword = () => {
               <input 
                 type="submit"
                 value="Actualizar Password"
-                className="bg-indigo-700 px-10 py-3 font-bold text-white rounded-lg uppercase w-full mt-5"
+                className="bg-indigo-700 px-10 py-3 font-bold text-white uppercase w-full mt-5"
               />
             </form>
           </div>

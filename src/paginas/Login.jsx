@@ -112,7 +112,7 @@ const Login = () => {
                 </div>
                 <input type="submit"
                 value="Iniciar Sesion"
-                className="bg-indigo-700 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"/>
+                className="bg-indigo-700 w-full py-3 px-10 text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"/>
             </form>
             <nav className="mt-10 lg:flex lg:justify-between">
                 <Link 
