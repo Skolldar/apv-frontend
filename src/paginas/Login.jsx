@@ -9,8 +9,8 @@ import clienteAxios from '../config/axios';
 
 const Login = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('test@test.com')
+    const [password, setPassword] = useState('Test@123')
     const [alerta, setAlerta] = useState({})
     const [showPassword, setShowPassword] = useState(false)
 
